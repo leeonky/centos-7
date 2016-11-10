@@ -10,7 +10,7 @@ RUN yum -y install sudo
 ENV USER gauss
 ENV USER_HOME /home/gauss
 RUN ( printf 'gauss\ngauss\n' | passwd ) && \
-	useradd gauss && \
+	useradd gauss -m && \
 	( printf 'gauss\ngauss\n' | passwd gauss ) && \
 	( echo 'gauss    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/gauss ) && \
 	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers && \
@@ -18,7 +18,7 @@ RUN ( printf 'gauss\ngauss\n' | passwd ) && \
 	chown gauss:gauss $USER_HOME/bin
 
 ADD lang.sh /etc/profile.d/
-USER gauss
+USER $USER
 
 ###### enable .bashrc.d
 RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_HOME/.bashrc && \
