@@ -6,21 +6,21 @@ RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 ###### install basic tools
 RUN yum -y install sudo
 
-###### add user devuser
-ENV DEV_HOME /home/devuser
-RUN ( printf 'devuser\ndevuser\n' | passwd ) && \
-	useradd devuser && \
-	( printf 'devuser\ndevuser\n' | passwd devuser ) && \
-	( echo 'devuser    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/devuser ) && \
+###### add user decare
+ENV USER_HOME /home/decare
+RUN ( printf 'decare\ndecare\n' | passwd ) && \
+	useradd decare && \
+	( printf 'decare\ndecare\n' | passwd decare ) && \
+	( echo 'decare    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/decare ) && \
 	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers && \
-	mkdir -p $DEV_HOME/bin && \
-	chown devuser:devuser $DEV_HOME/bin
+	mkdir -p $USER_HOME/bin && \
+	chown decare:decare $USER_HOME/bin
 
 ADD lang.sh /etc/profile.d/
-USER devuser
+USER decare
 
 ###### enable .bashrc.d
-RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $DEV_HOME/.bashrc && \
-	mkdir -p $DEV_HOME/.bashrc.d
+RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_HOME/.bashrc && \
+	mkdir -p $USER_HOME/.bashrc.d
 
 CMD bash
