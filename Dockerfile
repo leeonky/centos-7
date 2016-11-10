@@ -11,9 +11,7 @@ ENV USER_NAME gauss
 ENV USER_HOME /home/$USER_NAME
 RUN useradd $USER_NAME -m && \
 	( echo 'gauss    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/$USER_NAME ) && \
-	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers && \
-	mkdir -p $USER_HOME/bin && \
-	chown $USER_NAME:$USER_NAME $USER_HOME/bin
+	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers
 
 ADD lang.sh /etc/profile.d/
 USER $USER
