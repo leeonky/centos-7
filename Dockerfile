@@ -4,7 +4,8 @@ FROM daocloud.io/centos:7.2.1511
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 ###### install basic tools
-RUN yum -y install sudo
+RUN yum -y install sudo \
+	wget
 
 ###### add user gauss
 ENV USER gauss
