@@ -14,7 +14,7 @@ RUN useradd $USER_NAME -m && \
 	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers
 
 ADD lang.sh /etc/profile.d/
-USER $USER
+USER $USER_NAME
 
 ###### enable .bashrc.d
 RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_HOME/.bashrc && \
