@@ -14,7 +14,7 @@ RUN ( printf 'gauss\ngauss\n' | passwd ) && \
 	( printf 'gauss\ngauss\n' | passwd gauss ) && \
 	( echo 'gauss    ALL=(ALL)       NOPASSWD:ALL' > /etc/sudoers.d/gauss ) && \
 	sed 's/^Defaults \{1,\}requiretty'//g -i /etc/sudoers && \
-	mkdir -p gauss_HOME/bin && \
+	mkdir -p $USER_HOME/bin && \
 	chown gauss:gauss $USER_HOME/bin
 
 ADD lang.sh /etc/profile.d/
