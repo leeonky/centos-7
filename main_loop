@@ -1,13 +1,12 @@
 #!/bin/sh
 
 if [ "$WORK_ADDR" ]; then
-	echo "Try to mount nfs $WORK_ADDR"
+	echo -n "Try to mount nfs $WORK_ADDR... "
 	mkdir -p ~/nfs
-	sudo mount -o nolock -t nfs $WORK_ADDR ~/nfs
+	sudo mount -o nolock -t nfs $WORK_ADDR ~/nfs && echo 'Done.'
 fi
 
 while [ 1 ]
 do
 	sleep 1
 done
-
