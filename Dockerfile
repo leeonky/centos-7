@@ -23,6 +23,10 @@ ADD lang.sh /etc/profile.d/
 ADD main_loop /usr/local/bin/
 RUN sudo chmod +x /usr/local/bin/main_loop
 
+###### proxy for execute shell in login mode
+ADD lproxy /usr/local/bin/
+RUN sudo chmod +x /usr/local/bin/lproxy
+
 USER $USER_NAME
 ###### enable user .bashrc.d
 RUN echo 'for f in $(ls ~/.bashrc.d/); do source ~/.bashrc.d/$f; done' >> $USER_HOME/.bashrc && \
