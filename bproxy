@@ -1,0 +1,6 @@
+#!/bin/bash --login
+if [ "$1" == '-d' ]; then
+	cd "$2"
+	shift 2
+fi
+"$@"
