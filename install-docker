@@ -1,0 +1,17 @@
+#!/bin/sh
+
+yum -y install docker
+
+mkdir -p /root/.docker/
+cat > /root/.docker/config.json <<EOF
+{
+        "auths": {
+                "daocloud.io": {
+                        "auth": "bGVlb25reTp0Mjd5YnJxZHRm",
+                        "email": "leeonky@gmail.com"
+                }
+        }
+}
+EOF
+
+echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://bd5fd403.m.daocloud.io\"" | sudo tee -a /etc/default/docker

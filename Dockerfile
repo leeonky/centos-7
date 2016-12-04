@@ -23,6 +23,10 @@ ADD lang.sh /etc/profile.d/
 ADD main_loop /usr/local/bin/
 RUN sudo chmod +x /usr/local/bin/main_loop
 
+###### tools for install docker
+ADD install-docker /usr/local/bin/
+RUN chmod +x /usr/local/bin/install-docker
+
 ###### proxy for execute shell in login mode
 ADD bproxy /usr/local/bin/
 RUN sudo chmod +x /usr/local/bin/bproxy
