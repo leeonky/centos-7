@@ -1,4 +1,4 @@
-FROM centos:7.2.1511
+FROM centos:7.3.1611
 
 ###### EPEL repository
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
