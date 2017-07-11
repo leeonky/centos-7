@@ -4,7 +4,7 @@ FROM centos:7.2.1511
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 
 ###### install tools
-RUN yum install -y update \
+RUN yum -y update && yum install -y \
 	sudo \
 	mount.nfs && \
 	localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
