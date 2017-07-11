@@ -1,4 +1,4 @@
-FROM daocloud.io/centos:7.2.1511
+FROM centos:7.2.1511
 
 ###### EPEL repository
 RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
