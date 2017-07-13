@@ -7,7 +7,7 @@ RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 RUN yum -y update && yum install -y \
 	sudo \
 	mount.nfs && \
-	localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8
+	localedef --no-archive -i en_US -f UTF-8 en_US.UTF-8 && yum clean all
 
 ###### add user gauss
 ENV USER_NAME gauss
